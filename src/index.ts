@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 
+const cors = require('cors');
 let nodemailer = require('nodemailer')
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
@@ -12,6 +13,10 @@ const port = process.env.PORT || 3333;
 app.use(bodyParser.json());
 app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
 app.use(bodyParser.text({ type: "text/html" }));
+
+app.use(cors({
+	origin: 'https://www.ascenval.cl'
+}));
 
 app.all("/", async (req, res) => {
 	if(req.method === 'POST' && req.body.name && req.body.email && req.body.city && req.body.action) {
