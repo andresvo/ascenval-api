@@ -18,6 +18,9 @@ app.get("/", async (req, res) => {
 		  user: 'SMTP_Injection',
 		  pass: process.env.SPARKPOST_API_KEY,
 		},
+		tls: {
+			ciphers:'SSLv3'
+		},
 		secure: true,
 	})
 
