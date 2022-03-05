@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
 app.use(bodyParser.text({ type: "text/html" }));
 
-app.post("/", async (req, res) => {
-	if(req.body.name && req.body.email && req.body.city && req.body.action) {
+app.all("/", async (req, res) => {
+	if(req.method === 'POST' && req.body.name && req.body.email && req.body.city && req.body.action) {
 		const transporter = nodemailer.createTransport({
 			port: 587,
 			host: "smtp.sparkpostmail.com",
