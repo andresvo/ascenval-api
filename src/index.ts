@@ -30,12 +30,15 @@ app.get("/", async (req, res) => {
 	}
 
 	transporter.sendMail(mailData, function (err: any, info: any) {
-		if(err)
+		if(err) {
 			console.log(err)
-		else
+			res.json(err);
+		}
+		else {
 			console.log(info)
+			res.json(info);
+		}
 	})
-  res.json({ Hello: "World" });
 });
 
 app.listen(port, () => {
