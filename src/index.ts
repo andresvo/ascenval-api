@@ -38,7 +38,7 @@ app.all("/", async (req, res) => {
 			to: process.env.MAIL_TO,
 			subject: `Solicitud súmate a Ascenval`,
 			text: `Nombre: ${req.body.name}\nEmail: ${req.body.email}\nCiudad: ${req.body.city}\nSolicitud: ${req.body.action}\n`,
-			// html: '<div>prueba<br>dos</div>'
+			// html: '<div>prueba<br>dos.</div>'
 		}
 	
 		transporter.sendMail(mailData, function (err: any, info: any) {
