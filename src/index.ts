@@ -1,4 +1,3 @@
-import bodyParser from "body-parser";
 import express from "express";
 
 const cors = require('cors');
@@ -10,9 +9,9 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const port = process.env.PORT || 3333;
 
-app.use(bodyParser.json());
-app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
-app.use(bodyParser.text({ type: "text/html" }));
+app.use(express.json());
+app.use(express.raw({ type: "application/vnd.custom-type" }));
+app.use(express.text({ type: "text/html" }));
 
 app.use(cors({
 	origin: 'https://www.ascenval.cl'
@@ -37,7 +36,7 @@ app.all("/", async (req, res) => {
 			from: 'web@sp.garage71.cl',
 			to: process.env.MAIL_TO,
 			subject: `Solicitud súmate a Ascenval`,
-			text: `Nombre: ${req.body.name}\nEmail: ${req.body.email}\nCiudad: ${req.body.city}\nSolicitud: ${req.body.action}\n`,
+			text: `Nombre: ${req.body.name}\nEmail: ${req.body.email}\nEmail: ${req.body.phone}\nCiudad: ${req.body.city}\nSolicitud: ${req.body.action}\n`,
 			// html: '<div>prueba<br>dos.</div>'
 		}
 	
