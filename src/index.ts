@@ -36,7 +36,7 @@ app.all("/", async (req, res) => {
 			from: 'web@sp.garage71.cl',
 			to: process.env.MAIL_TO,
 			subject: `Solicitud súmate a Ascenval`,
-			text: `Nombre: ${req.body.name}\nEmail: ${req.body.email}\nEmail: ${req.body.phone}\nCiudad: ${req.body.city}\nSolicitud: ${req.body.action}\n`,
+			text: `Nombre: ${req.body.name}\nEmail: ${req.body.email}\nCelular: ${req.body.phone}\nCiudad: ${req.body.city}\nSolicitud: ${req.body.action}\n`,
 			// html: '<div>prueba<br>dos.</div>'
 		}
 	
